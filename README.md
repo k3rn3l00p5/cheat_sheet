@@ -1,5 +1,5 @@
-# project
-desc
+# Cheat Sheet
+This is the cheat sheet I use to program in Rust.
 
 ## Requirements
 **rust-lang**  
