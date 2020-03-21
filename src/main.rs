@@ -1,3 +1,7 @@
+// removes dead code and unused variable warnings
+#![allow(unused_variables)]
+#![allow(dead_code)]
+
 // bring something into the scope with use
 use std::cmp::Ordering;
 use std::io;
@@ -37,7 +41,6 @@ fn main() {
     let tup: (i32, f64, i32) = (500, 1.2, 1); // tuple example
     let (x, y, z) = tup; // destructing
     let first = tup.0; // accessing tuple elements
-    println!("{} {}", y, first); // getting rid of usage warnings
 
     // Arrays
     let a: [i32; 5] = [1, 2, 3, 4, 5]; // type annotations are optional
@@ -83,6 +86,45 @@ fn main() {
     // example struct building function usage
     init_example = build_example(String::from("example3"), String::from("example3"));
     println!("Example {}", init_example.field1); // accessing struct elements
+
+    // example enum with multiple variants
+    enum Example2 {
+        Variant1(i32, i32, i32, i32),
+        Variant2(String), // each variant has associated data value types
+    }
+
+    // enumerator variants initialization examples
+    let init_example2 = Example2::Variant1(1, 1, 1, 1);
+    let init_example3 = Example2::Variant2(String::from("example5"));
+
+    // enumerator methods
+    impl Example2 {
+        fn example2_method(&self) {
+            // method body
+        }
+    }
+
+    // example enum method usage
+    init_example2.example2_method();
+
+    // null value (virtually a null value without the safety risks)
+    let null_value: Option<i8> = None;
+
+    // some option enum example (non-null)
+    let some_u8_value = Some(0u8);
+    match some_u8_value {
+        Some(3) => println!("three"),
+        _ => (),
+    }
+
+    // if let example (checks a single pattern)
+    if let Some(3) = some_u8_value {
+        println!("three");
+    } else if let Some(4) = some_u8_value {
+        println!("four");
+    } else {
+        println!("some other number");
+    }
 
     // Tuple structs
     struct TupStruct(i32, i32, i32); // no field names
