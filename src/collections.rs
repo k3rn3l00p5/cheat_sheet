@@ -17,4 +17,13 @@ fn collections() {
     let a2 = [3; 5]; // same as [3,3,3,3,3]
     let first = a[0]; // accessing array elements
     println!("{}", &data[0..2]); // string slicing
+
+    // Vectors
+    // snip //
+
+    // Strings
+    // snip //
+
+    // HashMaps
+    // snip //
 }
